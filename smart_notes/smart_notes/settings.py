@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
     'users',
     'notes',
+    'api',
 ]
 
 MIDDLEWARE = [
@@ -144,4 +145,12 @@ SWAGGER_SETTINGS = {
             'in': 'header'
         }
     }
+}
+
+
+from datetime import timedelta
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(days=365),  # 1 years for access token
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=365), # 1 years for refresh token
+    'AUTH_HEADER_TYPES': ('Bearer',),                # Token type in requests
 }
